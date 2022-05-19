@@ -4,8 +4,8 @@ import "../App.css"
 const SignIn = () =>{
     return (
         <div className="container">
-              <div className="content">
-        <div className="row row2">   
+        <div className="content">
+        <div className="row mtop">   
             <div className="product-col4">
                 <img src={"./images/log.svg"} alt="sign-in"/>
             </div>

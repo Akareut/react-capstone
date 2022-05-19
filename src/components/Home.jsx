@@ -3,7 +3,7 @@ import BannerSection from './BannerSection'
 
 const Home = () =>{
     return (
-        <div>
+        <div className="container">
             <BannerSection/>
         </div>
     )
