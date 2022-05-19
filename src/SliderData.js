@@ -1,4 +1,4 @@
- const SliderData = () =>[
+ const SliderData = [
     {
     id: 1,
     title: "50% Off For Your First Shopping",

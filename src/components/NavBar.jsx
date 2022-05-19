@@ -1,22 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Link} from 'react-router-dom'
 import '../App.css'
 
 const NavBar = () => {
-
-    function toggleMenu(){
-        let menuItems =document.querySelector("#menuItems")
-        menuItems.style.maxHeight = "0px"
-
-        if(menuItems.style.maxHeight === "0px"){
-            menuItems.style.maxHeight = "200px"
-        }else{
-            menuItems.style.maxHeight = "0px"
-            }
-        }
-
+    const [isMobile,setIsMobile] = useState(false)
     return (
-        <div className="container">
+        <div className="container">  
         <div className="navbar">
             <div className="logo">
                 <Link to="/">
@@ -24,7 +13,8 @@ const NavBar = () => {
                 </Link>
             </div>
             <nav>
-                <ul id="menuItems">
+                <ul className={isMobile ? "nav-links-mobile":"nav-links"}
+                    onClick = {()=>setIsMobile(false)}>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/products">Products</Link></li>
                     <li className="dropdown">
@@ -37,10 +27,15 @@ const NavBar = () => {
                         </ul>
                     </li>
                     <li><Link to="/contact">Contact</Link></li>
+                    <Link to="/cart"><i className="fas fa-shopping-cart cart"> <span id="itemsNum"></span></i></Link>
+
                 </ul>
             </nav>
-            <Link to="/cart"><i className="fas fa-shopping-cart cart"> <span id="itemsNum"></span></i></Link>
-            <i className="fas fa-bars menu" onClick={toggleMenu}></i>
+            <button className="mobile-icon"
+                    onClick={()=>setIsMobile(!isMobile)}
+                >
+                    {isMobile ? <i className="fas fa-times menu"></i>:<i className="fas fa-bars menu"></i>}
+                </button>
         </div>
     </div>
     )
