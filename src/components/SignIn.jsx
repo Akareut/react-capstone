@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import "../App.css"
 
 const SignIn = () =>{
@@ -19,15 +20,15 @@ const SignIn = () =>{
                         <input type="password" id="password-sign" placeholder="Enter password"/>
                         <span id="errorPassword"></span>
                         <button type="submit" className="btn">LOGIN</button>
-                        <p>Don't have an account ? <a href="signup.html">Register here</a></p>
+                        <p>Don't have an account ? <Link to="/sign-up">Register here</Link></p>
                     </form>
                 </div>
             </div>
         </div>
     </div> 
-        </div>
+</div>
         
-    )
+)
 }
 
 export default SignIn
