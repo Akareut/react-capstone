@@ -65,7 +65,7 @@ const Home = () =>{
                         loading ?
                         products.map((product)=>{
                             return(
-                                <div className="col4 product">
+                                <div className="col4 product" key={product.id}> 
                                 <img src={product.image} alt={product.title.substring(0, 25)}/>
                                 <h2>
                                     {product.title.length > 25 ?

@@ -3,103 +3,103 @@ import React from 'react'
 const Products = () =>{
     return (
         <div className="container">
-            <div class="content">
-                <h2 class="title-left">All Products</h2>
-                <div class="row products">
-                    <div class="col4 product">
+            <div className="content">
+                <h2 className="title-left">All Products</h2>
+                <div className="row products">
+                    <div className="col4 product">
                         <img src={"./images/log.svg"} alt="product"/>
                         <h2>Product</h2>
                         <p>$35</p>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div className="rating">
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
                         </div>
                     </div>
-                    <div class="col4 product">
+                    <div className="col4 product">
                         <img src={"./images/log.svg"} alt="product"/>
                         <h2>Product</h2>
                         <p>$35</p>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div className="rating">
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
                         </div>
                     </div>
-                    <div class="col4 product">
+                    <div className="col4 product">
                         <img src={"./images/log.svg"} alt="product"/>
                         <h2>Product</h2>
                         <p>$35</p>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div className="rating">
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
                         </div>
                     </div>
-                    <div class="col4 product">
+                    <div className="col4 product">
                         <img src={"./images/log.svg"} alt="product"/>
                         <h2>Product</h2>
                         <p>$35</p>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div className="rating">
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
                         </div>
                     </div>
-                    <div class="col4 product">
+                    <div className="col4 product">
                         <img src={"./images/log.svg"} alt="product"/>
                         <h2>Product</h2>
                         <p>$35</p>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div className="rating">
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
                         </div>
                     </div>
-                    <div class="col4 product">
+                    <div className="col4 product">
                         <img src={"./images/log.svg"} alt="product"/>
                         <h2>Product</h2>
                         <p>$35</p>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div className="rating">
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
                         </div>
                     </div>
-                    <div class="col4 product">
+                    <div className="col4 product">
                         <img src={"./images/log.svg"} alt="product"/>
                         <h2>Product</h2>
                         <p>$35</p>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div className="rating">
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
                         </div>
                     </div>
-                    <div class="col4 product">
+                    <div className="col4 product">
                         <img src={"./images/log.svg"} alt="product"/>
                         <h2>Product</h2>
                         <p>$35</p>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <div className="rating">
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
+                            <i className="fa fa-star"></i>
                         </div>
                     </div>
                 </div>
