@@ -22,7 +22,7 @@ body {
 .mobile-icon{
   display:none;
 }
-@media screen and (max-width:780px){
+@media screen and (max-width:780px) and (max-width:820px){
   .nav-links{
     display:none;
   }
@@ -305,6 +305,10 @@ nav ul li a:hover{
     }
     .box .right img{
       display:none;
+    }
+    .product img{
+        width:80px;
+        height:100px;
     }
     .homeSlide ul {
       display:none;
@@ -891,12 +895,20 @@ form button{
     }
     
 }
+@media only screen and (max-width: 600px){
+    .searchForm i{
+        position:relative;
+    }
+}
 @media only screen and (max-width:375px){
     .form-box{
         width:290px;
     }
     .form-box form{
         max-width:300px;
+    }
+    .searchForm i{
+        position:relative;
     }
     .hero{
         min-height: calc(100vh - 40px);
