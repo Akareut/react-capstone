@@ -6,22 +6,34 @@ import Cart from './components/Cart'
 import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
 import Products from './components/Products'
+import Product from './components/Product'
+import Profile from './components/Profile'
 import Footer from './components/Footer'
+import PageNotFound from './components/PageNotFound'
+import {CartProvider} from './CartContext'
+import {UserProvider} from './UserContext'
 
 function App() {
   return (
     <div className="App">
+      <CartProvider>
+      <UserProvider>
       <Router>
           <NavBar/>
           <Routes>
               <Route path="/" element={<Home/>}/>  
               <Route path="/cart" element={<Cart/>}/>  
               <Route path="/products" element={<Products/>}/>  
+              <Route path="/product/:id" element={<Product/>}/>  
               <Route path="/sign-in" element={<SignIn/>}/>  
               <Route path="/sign-up" element={<SignUp/>}/>  
+              <Route path="/profile" element={<Profile/>}/>  
+              <Route path="*" element={<PageNotFound/>}/>  
           </Routes>
           <Footer/>
       </Router>
+      </UserProvider>
+      </CartProvider>
     </div>
   );
 }

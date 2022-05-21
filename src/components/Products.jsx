@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Loader from './loader/Loader'
+import ProductCard from './ProductCard'
 
 const Products = () =>{
     const [products,setProducts] = useState([])
@@ -15,10 +16,18 @@ const Products = () =>{
             setProducts(data),
             setLoading(true)
         )
+        .catch((err) => console.log(err));
     }
+    let storeProducts = localStorage.setItem("all-products",JSON.stringify(products))
+
     useEffect(()=>{
-        getProducts()
-    },[])
+        if(storeProducts){
+            setProducts(JSON.parse(localStorage.getItem("all-products")))
+        }else{
+            getProducts()
+        }
+    },[storeProducts])
+
     return (
         <div className="container">
             <div className="content">
@@ -28,22 +37,7 @@ const Products = () =>{
                         loading ?
                         products.map((product)=>{
                             return(
-                                <div className="col4 product" key={product.id}> 
-                                <img src={product.image} alt={product.title.substring(0, 25)}/>
-                                <h2>
-                                    {product.title.length > 25 ?
-                                        `${product.title.substring(0, 25)}...` : product.title
-                                    }
-                                </h2>
-                                <p>${product.price}</p>
-                                <div className="rating">
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                    <i className="fa fa-star"></i>
-                                </div>
-                            </div>
+                                <ProductCard product={product} key={product.id}/>
                             )
                         })
                         :

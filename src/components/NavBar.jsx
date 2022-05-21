@@ -1,9 +1,21 @@
-import React,{useState} from 'react'
+import React,{useState,useContext} from 'react'
 import {Link} from 'react-router-dom'
 import '../App.css'
+import CartContext from '../CartContext'
+import UserContext from '../UserContext'
 
 const NavBar = () => {
+    const { items } = useContext(CartContext)
+    const { isLoggedIn }  = useContext(UserContext)
     const [isMobile,setIsMobile] = useState(false)
+
+    const Logout = (e) =>{
+        e.preventDefault()
+        localStorage.removeItem('LoggedIn');
+        window.location.replace("/")
+    }
+
+    // console.log(isLoggedIn)
     return (
         <div className="container">  
         <div className="navbar">
@@ -17,17 +29,32 @@ const NavBar = () => {
                     onClick = {()=>setIsMobile(false)}>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/products">Products</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
                     <li className="dropdown">
-                        <Link to=""> Account
+                        <Link to=""><i className="fa fa-user"></i> 
+                            { isLoggedIn ?
+                                isLoggedIn.username
+                                :
+                                "Account"
+                            }
                             <i className="fa fa-chevron-down"></i>
                         </Link>
                         <ul className="dropdown-content">
-                            <Link to="/sign-in" id="log">Login</Link>
-                            <Link to="/sign-up" id="reg">Register</Link>
+                            {
+                            isLoggedIn ?
+                            <>
+                                <Link to="/profile">Profile</Link>
+                                <Link to="" onClick={Logout}>Sign out</Link>
+                            </>
+                                :
+                            <>
+                                <Link to="/sign-in">Login</Link>
+                                <Link to="/sign-up">Register</Link>
+                            </>
+                            }
                         </ul>
                     </li>
-                    <li><Link to="/contact">Contact</Link></li>
-                    <Link to="/cart"><i className="fas fa-shopping-cart cart"> <span id="itemsNum"></span></i></Link>
+                    <Link to="/cart"><i className="fas fa-shopping-cart cart"> <span id="itemsNum">{items.length}</span></i></Link>
 
                 </ul>
             </nav>
