@@ -301,7 +301,6 @@ const Home = () =>{
         }
         getSearch()
     },[storeProducts])
-    
     return (
         <div className="container">
             <BannerSection/>
@@ -329,17 +328,24 @@ const Home = () =>{
                         </div>
                     </form>
                 </div>
+                
                 <div className="row products">
                     {
                         loading ?
+                        products?.length > 0 ?
                         products.map((product)=>{
                             return(
                                 <ProductCard product={product} key={product.id}/>
                             )
                         })
                         :
+                        <div className="empty">
+                            <Loader/>
+                        </div>
+                        :
                         <Loader/>
                         }
+                        
                 </div>
               </div>
         </div>

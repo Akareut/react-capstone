@@ -5,7 +5,8 @@ import CartContext from '../CartContext'
 import UserContext from '../UserContext'
 
 const NavBar = () => {
-    const { items } = useContext(CartContext)
+    // const { items } = useContext(CartContext)
+    const { count } = useContext(CartContext)
     const { isLoggedIn }  = useContext(UserContext)
     const [isMobile,setIsMobile] = useState(false)
 
@@ -15,6 +16,11 @@ const NavBar = () => {
         window.location.replace("/")
     }
 
+    const users = JSON.parse(localStorage.getItem("users"))
+
+    let user = users ? users.filter(u => u.email === isLoggedIn.email) : null
+
+    // console.log(user[0].username)
     // console.log(isLoggedIn)
     return (
         <div className="container">  
@@ -33,7 +39,7 @@ const NavBar = () => {
                     <li className="dropdown">
                         <Link to=""><i className="fa fa-user"></i> 
                             { isLoggedIn ?
-                                isLoggedIn.username
+                                user[0].username
                                 :
                                 "Account"
                             }
@@ -54,7 +60,13 @@ const NavBar = () => {
                             }
                         </ul>
                     </li>
-                    <Link to="/cart"><i className="fas fa-shopping-cart cart"> <span id="itemsNum">{items.length}</span></i></Link>
+                    <Link to="/cart">
+                        <i className="fas fa-shopping-cart cart">
+                            <span id="itemsNum">
+                                {count}
+                            </span>
+                        </i>
+                    </Link>
 
                 </ul>
             </nav>

@@ -251,6 +251,20 @@ nav ul li a:hover{
     margin-bottom: 3rem;
     color: #000;
 }
+.totals{
+    padding:30px;
+}
+.totals strong{
+    padding:35px;
+    font-size:25px;
+}
+.btn-{
+    margin-top:20px;
+}
+.remove-Item{
+    color:red;
+    cursor:pointer;
+}
 .banner-btn{
     padding: 1rem 3rem;
     text-transform:uppercase;
@@ -445,10 +459,11 @@ nav ul li a:hover{
 }
 .searchForm i{
    color:#ff523b;
-   padding:20px;
+   padding-top:5px;
+   padding-left:5px;
    cursor:pointer;
    position:absolute;
-   font-size:30px;
+   font-size:40px;
 }
 .product-col4{
     flex-basis:40%;
@@ -623,6 +638,20 @@ select:focus{
     color:red;
     display:none;
     font-size:13px;
+}
+.btn-link{
+    text-decoration:none;
+    color:#000;
+}
+.-span h5{
+    margin:10px;
+}
+.-span .fab{
+    margin-bottom:20px;
+}
+.-span li a{
+    text-decoration:none;
+    color:#000;
 }
 .e-span{
     float:left;
