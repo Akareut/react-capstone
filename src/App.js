@@ -10,6 +10,7 @@ import Product from './components/Product'
 import Profile from './components/Profile'
 import Footer from './components/Footer'
 import PageNotFound from './components/PageNotFound'
+import Contact from './components/Contact'
 import {CartProvider} from './CartContext'
 import {UserProvider} from './UserContext'
 
@@ -28,6 +29,7 @@ function App() {
               <Route path="/sign-in" element={<SignIn/>}/>  
               <Route path="/sign-up" element={<SignUp/>}/>  
               <Route path="/profile" element={<Profile/>}/>  
+              <Route path="/contact" element={<Contact/>}/>  
               <Route path="*" element={<PageNotFound/>}/>  
           </Routes>
           <Footer/>

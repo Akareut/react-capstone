@@ -4,6 +4,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import '../App.css'
+import {Link} from 'react-router-dom'
 
 const BannerSection = () =>{
     const settings = {
@@ -27,7 +28,9 @@ const BannerSection = () =>{
                                 <h1>{slider.title}</h1>
                                 <p>{slider.desc}</p>
                                 <button className="btn-primary">
-                                    visit collections
+                                    <Link to='/products' className="btn-link">
+                                        visit collections
+                                    </Link>
                                 </button>
                             </div>
                             <div className="right">

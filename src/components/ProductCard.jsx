@@ -1,10 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Ratings from './Ratings'
 
 const ProductCard = ({product}) =>{
+    const getTop = () =>{
+        // window.scrollTo(0, 0)
+    }
+
     return(
         <div className="col4 product"> 
-            <Link to={`/product/${product.id}`} className="product-link">
+            <Link to={`/product/${product.id}`} className="product-link" onClick={getTop}>
             <img src={product.image} alt={product.title.substring(0, 25)}/>
                 <h2>
                     {product.title.length > 25 ?
@@ -13,13 +18,7 @@ const ProductCard = ({product}) =>{
                 </h2>
             </Link>
             <p>${product.price}</p>
-                <div className="rating">
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                    <i className="fa fa-star"></i>
-                </div>
+                <Ratings value={product.rating.rate} text={`${product.rating.count} reviews`}/>
         </div>
     )
 }
