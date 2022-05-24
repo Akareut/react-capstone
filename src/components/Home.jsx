@@ -261,7 +261,7 @@ const Home = () =>{
         { value: "men's clothing", label: "Men's Clothing" }
     ];
     const getProducts = () =>{
-        fetch('https://fakestoreapi.com/products?limit=12')
+        fetch('https://fakestoreapi.com/products?limit=12',{mode: 'cors'})
         .then(res=>
             res.json()
         )
@@ -274,7 +274,7 @@ const Home = () =>{
     }
 
     const getSearch = (title) =>{
-        fetch(`https://fakestoreapi.com/products/category/${title}`)
+        fetch(`https://fakestoreapi.com/products/category/${title}`,{mode: 'cors'})
         .then(res=>
             res.json()
         )
@@ -292,14 +292,14 @@ const Home = () =>{
     }
 
     let storeProducts = localStorage.setItem("products",JSON.stringify(products))
-
+    
     useEffect(()=>{
         if(storeProducts){
             setProducts(JSON.parse(localStorage.getItem("products")))
         }else{
             getProducts()
         }
-        getSearch()
+        // getSearch()
     },[storeProducts])
     return (
         <div className="container">
