@@ -21,15 +21,17 @@ const SignUp = () =>{
     const inputs =[
         {
             id:1,
+            label:"Username",
             name:"username",
             type:"text",
-            placeholder:"Enter username address",
+            placeholder:"Enter username",
             errorMessage:"Username is invalid. ",
             required:true,
             pattern:"^[A-Za-z0-9 ]{3,20}"
         },
         {
             id:2,
+            label:"Email address",
             name:"email",
             type:"email",
             placeholder:"Enter email address",
@@ -38,6 +40,7 @@ const SignUp = () =>{
         },
         {
             id:3,
+            label:"Password",
             name:"password",
             type:"password",
             placeholder:"Enter user password",

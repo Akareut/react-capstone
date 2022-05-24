@@ -20,6 +20,7 @@ const SignIn = () =>{
     const inputs =[
         {
             id:1,
+            label:"Email address",
             name:"email",
             type:"email",
             placeholder:"Enter email address",
@@ -28,12 +29,13 @@ const SignIn = () =>{
         },
         {
             id:2,
+            label:"Password",
             name:"password",
             type:"password",
             placeholder:"Enter user password",
             errorMessage:"Password should be between 8 to 20 characters long. ",
             required:true,
-            pattern:"^[A-Za-z0-9]{8,20}"
+            pattern:"^[A-Za-z0-9]{8,20}",
         }
     ]
 
@@ -45,9 +47,9 @@ const SignIn = () =>{
         setError(false)
         e.preventDefault();  
         let users = JSON.parse(localStorage.getItem('users'))
-        let user = users.filter(user => user.email === values.email)
+        let user = users && users.filter(user => user.email === values.email)
 
-        if(users.some(user => user.email === values.email) && users.some(user => user.password === values.password)){
+        if(users && users.some(user => user.email === values.email) && users.some(user => user.password === values.password)){
             localStorage.setItem('LoggedIn', JSON.stringify({username:user.username,email:values.email,password:values.password})); 
             window.location.replace("/")
         }else{
@@ -73,10 +75,11 @@ const SignIn = () =>{
                                 return(
                                     <FormInput key={input.id} 
                                         {...input} name={input.name}
-                                        type={input.type} 
+                                        type={input.type === 'password' ? input.type : input.type === "text"} 
                                         placeholder={input.placeholder}
                                         value={values[input.name]}
                                         onChange={onChange}
+
                                     />
                                    
                                 )

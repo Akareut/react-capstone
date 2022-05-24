@@ -8,7 +8,7 @@ const Products = () =>{
     const [count,setCount] = useState(0)
 
     const getProducts = () =>{
-        fetch('https://fakestoreapi.com/products')
+        fetch('https://fakestoreapi.com/products',{mode: 'cors'})
         .then(res=>
             res.json()
         )

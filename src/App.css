@@ -457,6 +457,12 @@ nav ul li a:hover{
     display: flex;
     flex-direction: row;
 }
+label{
+    float:left;
+}
+.form-group {
+    margin-bottom: 1.9rem;
+}
 .searchForm i{
    color:#ff523b;
    padding-top:5px;

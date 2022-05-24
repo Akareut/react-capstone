@@ -7,6 +7,11 @@ const ProductCard = ({product}) =>{
         // window.scrollTo(0, 0)
     }
 
+    // const ratings = JSON.parse(localStorage.getItem("ratings")) 
+    //     ? JSON.parse(localStorage.getItem("ratings")):""
+
+    // const [rated] = ratings.find(r => r.id === product.id)
+
     return(
         <div className="col4 product"> 
             <Link to={`/product/${product.id}`} className="product-link" onClick={getTop}>

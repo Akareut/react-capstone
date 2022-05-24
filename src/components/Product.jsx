@@ -71,23 +71,24 @@ const Product = () =>{
     ];
 
     let rated = JSON.parse(localStorage.getItem("ratings")) ? JSON.parse(localStorage.getItem("ratings")) : ''
-
+    // let pro = JSON.parse(localStorage.getItem("products"))
+    
     const rateProduct = (rate) =>{
-        if(rated && oneProduct.id === product.id){
-            let rateItem = {
-                "id":product.id,
-                "product":product.title,
-                "price":product.price,
-                "rate":rate
+        let rateItem = {
+            "id":product.id,
+            "product":product.title,
+            "price":product.price,
+            "rate":rate
+        }
+
+        if(rated){
+            let product = rated.some(r=>r.id === oneProduct.id)
+            if(!product){
+                localStorage.setItem("ratings",JSON.stringify([...rated,rateItem]))
             }
-            localStorage.setItem("ratings",JSON.stringify([...rated,rateItem]))
         }else{
-            let rateItem = {
-                "id":product.id,
-                "product":product.title,
-                "rate":rate
-            }
-            localStorage.setItem("ratings",JSON.stringify([rateItem]))
+            localStorage.setItem("ratings",JSON.stringify([...rated,rateItem]))
+
         }
         
     }
@@ -118,7 +119,7 @@ const Product = () =>{
                 <>
                 <div className="product-col4">
                     <div className="e-span">{error}</div>
-                    <img src={product.image} alt="product"/>
+                    <img src={product.image} alt="product loading ..."/>
                 </div>
                 <div className="col-single">
                     Rate product
@@ -160,7 +161,7 @@ const Product = () =>{
             </div>
         </div>
         )
-    }else if(!product && ! related){
+    }else if(!product){
     return(
         <>
         {
