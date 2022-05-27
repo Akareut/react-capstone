@@ -8,7 +8,7 @@ const SignUp = () =>{
     const { isLoggedIn }  = useContext(UserContext)
 
     if(isLoggedIn){
-        window.location.replace("/")
+        window.location.replace("/sign-in")
     }
 
     const [error,setError] = useState("");
