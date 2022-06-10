@@ -8,20 +8,22 @@ const NavBar = () => {
     // const { items } = useContext(CartContext)
     const { count } = useContext(CartContext)
     const { isLoggedIn }  = useContext(UserContext)
+
+    let [loggedIn,setLoggedIn] = useState(isLoggedIn)
+
     const [isMobile,setIsMobile] = useState(false)
 
     const Logout = (e) =>{
         e.preventDefault()
         localStorage.removeItem('LoggedIn');
-        window.location.replace("/")
+        setLoggedIn(!isLoggedIn)
+        window.location.reload(false);
     }
 
     const users = JSON.parse(localStorage.getItem("users"))
 
     let user = users ? users.filter(u => u.email === isLoggedIn.email) : null
 
-    // console.log(user[0].username)
-    // console.log(isLoggedIn)
     return (
         <div className="container">  
         <div className="navbar">
@@ -38,7 +40,7 @@ const NavBar = () => {
                     <li><Link to="/contact">Contact</Link></li>
                     <li className="dropdown">
                         <Link to=""><i className="fa fa-user"></i> 
-                            { isLoggedIn ?
+                            { loggedIn ?
                                 user[0].username
                                 :
                                 "Account"
@@ -47,7 +49,7 @@ const NavBar = () => {
                         </Link>
                         <ul className="dropdown-content">
                             {
-                            isLoggedIn ?
+                            loggedIn ?
                             <>
                                 <Link to="/profile">Profile</Link>
                                 <Link to="" onClick={Logout}>Sign out</Link>

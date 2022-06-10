@@ -1,5 +1,5 @@
-import React,{useState,useContext} from 'react'
-import {Link} from 'react-router-dom'
+import React,{useState,useContext,useEffect} from 'react'
+import {Link,useNavigate} from 'react-router-dom'
 import FormInput from './FormInput'
 import "../App.css"
 import UserContext from '../UserContext'
@@ -8,9 +8,13 @@ const SignIn = () =>{
     const { isLoggedIn }  = useContext(UserContext)
     const [error,setError] = useState("");
 
-    if(isLoggedIn){
-        window.location.replace("/")
-    }
+    let navigate = useNavigate()
+
+    useEffect(()=>{
+        if(isLoggedIn){
+            navigate("/", { replace: true });
+        }
+    })
 
     const [values,setValues] = useState({
         email:"",
@@ -51,7 +55,7 @@ const SignIn = () =>{
 
         if(users && users.some(user => user.email === values.email) && users.some(user => user.password === values.password)){
             localStorage.setItem('LoggedIn', JSON.stringify({username:user.username,email:values.email,password:values.password})); 
-            window.location.replace("/")
+            window.location.reload(false);
         }else{
             setError("Invalid email and password combination.")
         }
@@ -71,11 +75,11 @@ const SignIn = () =>{
                     <form id="signIn" onSubmit={handleSubmit}>
                         <span className="e-span">{error}</span>
                         {
-                            inputs.map((input)=>{
+                            inputs && inputs.map((input)=>{
                                 return(
                                     <FormInput key={input.id} 
                                         {...input} name={input.name}
-                                        type={input.type === 'password' ? input.type : input.type === "text"} 
+                                        type={input.type} 
                                         placeholder={input.placeholder}
                                         value={values[input.name]}
                                         onChange={onChange}
