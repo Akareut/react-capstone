@@ -1,34 +1,44 @@
-import React,{useContext} from 'react'
+import React,{useContext,useEffect,useState} from 'react'
 import "../App.css"
 import Loader from './loader/Loader'
 import UserContext from '../UserContext'
+import CartContext from '../CartContext'
+import { useNavigate } from "react-router-dom";
 
 const Cart = () =>{
-
+let navigate = useNavigate();
 const { isLoggedIn }  = useContext(UserContext)
+const { setCount }  = useContext(CartContext)
 
 let order = JSON.parse(localStorage.getItem("cart")) ? JSON.parse(localStorage.getItem("cart")) : ''
 let history = [isLoggedIn,...order]
 
-const completeOrder = () =>{
+const [items,setItems] = useState(JSON.parse(localStorage.getItem("cart")))
+
+const CompleteOrder = () =>{
     if(isLoggedIn){
         localStorage.setItem("order-history",JSON.stringify(history))
         localStorage.removeItem('cart');
         alert("Your order has been confirmed.")
-        window.location.reload()
+        setCount(JSON.parse(localStorage.getItem("cart")) && Object.keys(JSON.parse(localStorage.getItem("cart"))).length)
+        navigate("/", { replace: true });
     }else{
-        window.location.replace("/")
+        navigate("/sign-in", { replace: true });
     }
 }
 
 const removeCartItem = (id) =>{
     let cart_ = JSON.parse(localStorage.getItem("cart"))
-    let items  = cart_.filter(item => item.id !== id)
+    let items  = cart_ && cart_.filter(item => item.id !== id)
     localStorage.setItem('cart', JSON.stringify(items));
-    window.location.reload()
+    setItems(items)
+    setCount(JSON.parse(localStorage.getItem("cart")) && Object.keys(JSON.parse(localStorage.getItem("cart"))).length)
 }
 
-let items = JSON.parse(localStorage.getItem("cart"))
+useEffect(()=>{
+    removeCartItem()
+    // eslint-disable-next-line
+},[])
 
 if(items){
 return (
@@ -72,7 +82,7 @@ return (
          </table>
         <h2>Total: $ { items.reduce((a,v) =>  a = a + v.total , 0 )}</h2>
 
-         <button className="btn-primary btn-" onClick={completeOrder}>complete order now</button>
+         <button className="btn-primary btn-" onClick={CompleteOrder}>complete order now</button>
          </>
          }
       </div>

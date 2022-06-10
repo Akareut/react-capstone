@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import '../App.css'
 
-const FormInput = (props) =>{
+const FormInput = (props) =>{ 
     const [focused,setFocused] = useState(false)
     const {onChange,errorMessage,label,id,...inputProps} = props
 

@@ -1,14 +1,15 @@
 import React,{useState,useContext} from 'react'
 import "../App.css"
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import FormInput from './FormInput'
 import UserContext from '../UserContext'
 
 const SignUp = () =>{
     const { isLoggedIn }  = useContext(UserContext)
+    let navigate = useNavigate()
 
     if(isLoggedIn){
-        window.location.replace("/sign-in")
+        navigate("/sign-in", { replace: true });
     }
 
     const [error,setError] = useState("");
@@ -79,7 +80,7 @@ const SignUp = () =>{
             }else{
                 localStorage.setItem('users', JSON.stringify([{username:values.username,email:values.email,password:values.password}]));
             }
-            window.location.replace("/sign-in")
+           navigate("/sign-in", { replace: true });
         }
     }
 
